@@ -4,6 +4,7 @@ import {
   Text,
   StyleSheet,
   GestureResponderEvent,
+  TouchableHighlight,
 } from "react-native";
 
 interface CustomButtonProps {
@@ -13,9 +14,9 @@ interface CustomButtonProps {
 
 const CustomButton: React.FC<CustomButtonProps> = ({ title, onPress }) => {
   return (
-    <TouchableOpacity style={styles.button} onPress={onPress}>
+    <TouchableHighlight style={styles.button} onPress={onPress}>
       <Text style={styles.buttonText}>{title}</Text>
-    </TouchableOpacity>
+    </TouchableHighlight>
   );
 };
 
