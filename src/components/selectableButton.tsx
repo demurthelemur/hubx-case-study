@@ -15,39 +15,30 @@ const SubscriptionCard: React.FC<CustomSelectableButtonProps> = ({
   //onPress,
 }) => {
   return (
-    <View style={styles.testCard}>
-      <Pressable style={isSelected ? styles.selectedCard : styles.card}>
-        <View style={styles.content}>
-          <View style={styles.leftSection}>
-            <View
-              style={
-                isSelected ? styles.selectedRadioButton : styles.RadioButton
-              }
-            />
-            <View>
-              <Text style={styles.title}>{mainText}</Text>
-              <Text style={styles.subtitle}>{subText}</Text>
+    <Pressable style={isSelected ? styles.selectedCard : styles.card}>
+      <View style={styles.content}>
+        <View style={styles.leftSection}>
+          <View
+            style={isSelected ? styles.selectedRadioButton : styles.RadioButton}
+          />
+          <View>
+            <Text style={styles.title}>{mainText}</Text>
+            <Text style={styles.subtitle}>{subText}</Text>
+          </View>
+        </View>
+        {isSelected && (
+          <View style={styles.rightSection}>
+            <View style={styles.discountBadge}>
+              <Text style={styles.discountText}>Save 50%</Text>
             </View>
           </View>
-          {isSelected && (
-            <View style={styles.rightSection}>
-              <View style={styles.discountBadge}>
-                <Text style={styles.discountText}>Save 50%</Text>
-              </View>
-            </View>
-          )}
-        </View>
-      </Pressable>
-    </View>
+        )}
+      </View>
+    </Pressable>
   );
 };
 
 const styles = StyleSheet.create({
-  testCard: {
-    width: "100%",
-    height: "100%",
-    backgroundColor: "rgb(16, 30, 23)",
-  },
   selectedCard: {
     backgroundColor: "rgb(17, 34, 25)",
     width: "90%",
