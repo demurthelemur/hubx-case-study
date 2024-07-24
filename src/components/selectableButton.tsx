@@ -3,11 +3,15 @@ import { View, Text, StyleSheet, Pressable, Image } from "react-native";
 
 interface CustomSelectableButtonProps {
   isSelected: string;
+  mainText: string;
+  subText: string;
   //onPress: (event: GestureResponderEvent) => void;
 }
 
 const SubscriptionCard: React.FC<CustomSelectableButtonProps> = ({
   isSelected,
+  mainText,
+  subText,
   //onPress,
 }) => {
   return (
@@ -21,10 +25,8 @@ const SubscriptionCard: React.FC<CustomSelectableButtonProps> = ({
               }
             />
             <View>
-              <Text style={styles.title}>1 Year</Text>
-              <Text style={styles.subtitle}>
-                First 3 days free, then $529.99/year
-              </Text>
+              <Text style={styles.title}>{mainText}</Text>
+              <Text style={styles.subtitle}>{subText}</Text>
             </View>
           </View>
           {isSelected && (
