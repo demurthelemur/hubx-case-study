@@ -17,7 +17,6 @@ const OnboardingPageOne: React.FC<Props> = ({}) => {
       <Image
         source={require("../assets/onboarding1Title.png")}
         style={styles.title}
-        resizeMode="stretch"
       />
       <Image
         source={require("../assets/onboarding1.png")}
