@@ -1,21 +1,31 @@
 import React from "react";
-import { View, Text, StyleSheet, Pressable, Image } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Pressable,
+  Image,
+  GestureResponderEvent,
+} from "react-native";
 
 interface CustomSelectableButtonProps {
   isSelected: boolean;
   mainText: string;
   subText: string;
-  //onPress: (event: GestureResponderEvent) => void;
+  onPress: (event: GestureResponderEvent) => void;
 }
 
 const SubscriptionCard: React.FC<CustomSelectableButtonProps> = ({
   isSelected,
   mainText,
   subText,
-  //onPress,
+  onPress,
 }) => {
   return (
-    <Pressable style={isSelected ? styles.selectedCard : styles.card}>
+    <Pressable
+      style={isSelected ? styles.selectedCard : styles.card}
+      onPress={onPress}
+    >
       <View style={styles.content}>
         <View style={styles.leftSection}>
           <View
@@ -44,16 +54,18 @@ const styles = StyleSheet.create({
     width: 327,
     borderRadius: 15,
     padding: 15,
-    margin: 10,
     borderWidth: 1.5,
     borderColor: "#28AF6E",
+    marginTop: 5,
+    marginBottom: 5,
   },
   card: {
     backgroundColor: "rgba(255, 255, 255, 0.05)",
     width: 327,
+    marginTop: 5,
+    marginBottom: 5,
     borderRadius: 15,
     padding: 15,
-    margin: 10,
     borderWidth: 1.5,
     borderColor: "rgba(255, 255, 255, 0.3)",
   },

@@ -13,6 +13,8 @@ const iconLoader = (iconName: string) => {
       return require("../assets/unlimitedIcon.png");
     case "fasterIcon":
       return require("../assets/fasterIcon.png");
+    case "extraIcon":
+      return require("../assets/extraIcon.png");
     default:
       throw new Error("Icon not found");
   }
@@ -44,9 +46,10 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(35, 48, 41, 0.9)",
     borderRadius: 15,
     padding: 15,
-    width: 156,
+    width: 150,
     height: 130,
-    paddingLeft: 20,
+    paddingLeft: 10,
+    marginRight: 10,
     justifyContent: "center",
     alignItems: "flex-start",
   },
