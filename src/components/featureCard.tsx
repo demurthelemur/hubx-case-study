@@ -7,13 +7,29 @@ interface FeatureCardProps {
   icon: string;
 }
 
-const FeatureCard: React.FC<FeatureCardProps> = ({ text, subtext, icon }) => {
-  icon = "../assets/unlimitedIcon.png"; // Replace with your icon URL or local file
+const iconLoader = (iconName: string) => {
+  switch (iconName) {
+    case "unlimitedIcon":
+      return require("../assets/unlimitedIcon.png");
+    case "fasterIcon":
+      return require("../assets/fasterIcon.png");
+    default:
+      throw new Error("Icon not found");
+  }
+};
+
+const FeatureCard: React.FC<FeatureCardProps> = ({
+  text,
+  subtext,
+  icon,
+}: FeatureCardProps) => {
+  const iconSource = iconLoader(icon);
+
   return (
     <View style={styles.card}>
       <View style={styles.iconContainer}>
         <Image
-          source={require("../assets/unlimitedIcon.png")} // Replace with your icon URL or local file
+          source={iconSource} // Replace with your icon URL or local file
           style={styles.icon}
         />
       </View>
