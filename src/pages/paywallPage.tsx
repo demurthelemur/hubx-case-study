@@ -13,7 +13,7 @@ import BasicButton from "../components/basicButton";
 import CloseButton from "../components/closeButton";
 
 interface PaywallPageProps {
-  // Define your component props here
+  navigation: any;
 }
 
 type Feature = {
@@ -40,8 +40,9 @@ const features: Feature[] = [
   },
 ];
 
-const PaywallPage: React.FC<PaywallPageProps> = () => {
+const PaywallPage: React.FC<PaywallPageProps> = ({ navigation }) => {
   function buttonClicked(): void {
+    navigation.navigate("OnboardingPageOne");
     console.log("Button clicked");
   }
   const [monthlySelected, setmonthlySelected] = React.useState(true);
@@ -176,7 +177,7 @@ const styles = StyleSheet.create({
   },
   closeButtonContainer: {
     top: 50,
-    left: 335,
+    left: 325,
     position: "absolute",
   },
 });

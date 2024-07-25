@@ -5,12 +5,12 @@ import PageIndicator from "../components/pageIndicator";
 import { LinearGradient } from "expo-linear-gradient";
 
 interface Props {
-  // Define your component's props here
+  navigation: any;
 }
 
-const OnboardingPageTwo: React.FC<Props> = ({}) => {
+const OnboardingPageTwo: React.FC<Props> = ({ navigation }) => {
   function buttonClicked() {
-    console.log("Button Pressed");
+    navigation.navigate("PaywallPage");
   }
 
   return (

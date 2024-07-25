@@ -3,12 +3,12 @@ import { View, Text, StyleSheet, Image } from "react-native";
 import BasicButton from "../components/basicButton";
 
 interface Props {
-  // Define your component's props here
+  navigation: any;
 }
 
-const gettingStartedPage: React.FC<Props> = ({}) => {
+const gettingStartedPage: React.FC<Props> = ({ navigation }) => {
   function buttonClicked() {
-    console.log("Button Pressed");
+    navigation.navigate("OnboardingPageOne");
   }
 
   return (

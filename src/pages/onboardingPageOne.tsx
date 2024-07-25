@@ -4,12 +4,12 @@ import BasicButton from "../components/basicButton";
 import PageIndicator from "../components/pageIndicator";
 
 interface Props {
-  // Define your component's props here
+  navigation: any;
 }
 
-const OnboardingPageOne: React.FC<Props> = ({}) => {
+const OnboardingPageOne: React.FC<Props> = ({ navigation }) => {
   function buttonClicked() {
-    console.log("Button Pressed");
+    navigation.navigate("OnboardingPageTwo");
   }
 
   return (

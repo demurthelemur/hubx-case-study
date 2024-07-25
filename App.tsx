@@ -10,6 +10,10 @@ import SelectableButton from "./src/components/selectableButton";
 import FeatureCard from "./src/components/featureCard";
 import AppLoading from "expo-app-loading";
 import PaywallPage from "./src/pages/paywallPage";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -21,9 +25,33 @@ export default function App() {
   if (!fontsLoaded) {
     return <AppLoading />;
   }
+
+  let onobardingDone = true;
+
   return (
     <Provider store={store}>
-      <PaywallPage></PaywallPage>
+      <NavigationContainer>
+        <Stack.Navigator
+          screenOptions={{ headerShown: false }}
+          initialRouteName={
+            onobardingDone ? "OnboardingPageOne" : "GettingStartedPage"
+          }
+        >
+          <Stack.Screen
+            name="GettingStartedPage"
+            component={GettingStartedPage}
+          />
+          <Stack.Screen
+            name="OnboardingPageOne"
+            component={OnboardingPageOne}
+          />
+          <Stack.Screen
+            name="OnboardingPageTwo"
+            component={OnboardingPageTwo}
+          />
+          <Stack.Screen name="PaywallPage" component={PaywallPage} />
+        </Stack.Navigator>
+      </NavigationContainer>
     </Provider>
   );
 }
