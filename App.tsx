@@ -12,6 +12,7 @@ import AppLoading from "expo-app-loading";
 import PaywallPage from "./src/pages/paywallPage";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Homepage from "./src/pages/homePage";
 
 const Stack = createNativeStackNavigator();
 
@@ -33,9 +34,7 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator
           screenOptions={{ headerShown: false }}
-          initialRouteName={
-            onobardingDone ? "OnboardingPageOne" : "GettingStartedPage"
-          }
+          initialRouteName={onobardingDone ? "Homepage" : "GettingStartedPage"}
         >
           <Stack.Screen
             name="GettingStartedPage"
@@ -50,6 +49,7 @@ export default function App() {
             component={OnboardingPageTwo}
           />
           <Stack.Screen name="PaywallPage" component={PaywallPage} />
+          <Stack.Screen name="Homepage" component={Homepage} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
