@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet, Pressable, Image } from "react-native";
 
 interface CustomSelectableButtonProps {
-  isSelected: string;
+  isSelected: boolean;
   mainText: string;
   subText: string;
   //onPress: (event: GestureResponderEvent) => void;
@@ -41,7 +41,7 @@ const SubscriptionCard: React.FC<CustomSelectableButtonProps> = ({
 const styles = StyleSheet.create({
   selectedCard: {
     backgroundColor: "rgb(17, 34, 25)",
-    width: "90%",
+    width: 327,
     borderRadius: 15,
     padding: 15,
     margin: 10,
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
   },
   card: {
     backgroundColor: "rgba(255, 255, 255, 0.05)",
-    width: "90%",
+    width: 327,
     borderRadius: 15,
     padding: 15,
     margin: 10,
@@ -112,6 +112,8 @@ const styles = StyleSheet.create({
   discountText: {
     color: "#ffffff",
     fontSize: 12,
+    width: 56,
+    height: 18,
     fontWeight: "bold",
   },
 });

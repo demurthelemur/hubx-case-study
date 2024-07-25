@@ -19,16 +19,17 @@ const gettingStartedPage: React.FC<Props> = ({}) => {
       <Text style={styles.secondaryText}>
         Identify more than 3000+ plants and {"\n"}88% accuracy.
       </Text>
-      <Image source={require("../assets/getStartedImage.png")} />
-      <View style={styles.buttonContainer}>
-        <BasicButton title="Continue" onPress={buttonClicked} />
-        <View style={styles.privacyPolicyContainer}>
-          <Text style={styles.altText}>
-            By tapping next you are agreeing to plantID{"\n"}
-            <Text style={styles.underlineText}>Terms of Use </Text> &
-            <Text style={styles.underlineText}> Privacy Policy</Text>
-          </Text>
-        </View>
+      <Image
+        style={styles.image}
+        source={require("../assets/getStartedImage.png")}
+      />
+      <BasicButton title="Get Started" onPress={buttonClicked} />
+      <View style={styles.privacyPolicyContainer}>
+        <Text style={styles.altText}>
+          By tapping next you are agreeing to plantID{"\n"}
+          <Text style={styles.underlineText}>Terms of Use </Text> &
+          <Text style={styles.underlineText}> Privacy Policy</Text>
+        </Text>
       </View>
     </View>
   );
@@ -39,7 +40,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "flex-start",
-    paddingLeft: 34,
+    paddingLeft: 24,
+    paddingRight: 24,
+    width: "100%",
+    height: "100%",
+  },
+  image: {
+    alignSelf: "center",
   },
   title: {
     fontSize: 28,
@@ -48,19 +55,15 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   secondaryText: { fontSize: 16 },
-  buttonContainer: {
-    position: "absolute",
-    top: "87%", // Adjust as needed
-    left: "25%", // Adjust as needed
-    transform: [{ translateX: -50 }, { translateY: -50 }], // Center the button
-  },
   altText: {
     textAlign: "center",
     fontSize: 11,
     color: "#597165",
   },
   privacyPolicyContainer: {
-    marginTop: 10,
+    alignSelf: "center",
+    width: "100%",
+    marginTop: 20,
   },
   underlineText: {
     textDecorationLine: "underline",

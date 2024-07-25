@@ -48,13 +48,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  title: { width: 277, height: 49, marginTop: 59, marginBottom: 20 },
+  title: { width: 277, height: 49, marginTop: 59, marginBottom: 70 },
   image: { height: 540, width: 261, marginBottom: 50 },
   buttonContainer: {
     position: "absolute",
     top: "85%", // Adjust as needed
-    left: "22.5%", // Adjust as needed
-    transform: [{ translateX: -50 }, { translateY: -50 }], // Center the button
+    alignItems: "center",
+    width: "100%",
     zIndex: 2,
   },
   pageContainer: { marginTop: 15 },
@@ -62,11 +62,11 @@ const styles = StyleSheet.create({
     zIndex: 1,
     position: "absolute",
     top: 520,
-    left: 75,
+    left: 60,
     right: 0,
     bottom: 0,
     width: 261,
-    height: 540, // Adjust the height of the gradient to your liking
+    height: 540,
   },
   background: {
     position: "absolute",
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
   },
   artwork: {
     position: "absolute",
-    top: 170,
+    top: 140,
   },
 });
 

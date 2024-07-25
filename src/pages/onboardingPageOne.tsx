@@ -24,7 +24,9 @@ const OnboardingPageOne: React.FC<Props> = ({}) => {
       />
       <View style={styles.buttonContainer}>
         <BasicButton title="Continue" onPress={buttonClicked} />
-        <PageIndicator currentPage={0} totalPages={3}></PageIndicator>
+        <View style={styles.indicatorContainer}>
+          <PageIndicator currentPage={0} totalPages={3}></PageIndicator>
+        </View>
       </View>
     </View>
   );
@@ -40,11 +42,12 @@ const styles = StyleSheet.create({
   image: { height: 630 },
   buttonContainer: {
     position: "absolute",
-    top: "85%", // Adjust as needed
-    left: "25%", // Adjust as needed
-    transform: [{ translateX: -50 }, { translateY: -50 }], // Center the button
-    zIndex: 1,
+    top: "80%", // Adjust as needed
+    alignItems: "center",
+    width: "100%",
+    zIndex: 2,
   },
+  indicatorContainer: { marginTop: 15 },
 });
 
 export default OnboardingPageOne;
