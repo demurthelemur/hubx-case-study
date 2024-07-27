@@ -6,7 +6,7 @@ interface Props {
   navigation: any;
 }
 
-const gettingStartedPage: React.FC<Props> = ({ navigation }) => {
+const GettingStartedPage: React.FC<Props> = ({ navigation }) => {
   function buttonClicked() {
     navigation.navigate("OnboardingPageOne");
   }
@@ -23,7 +23,9 @@ const gettingStartedPage: React.FC<Props> = ({ navigation }) => {
         style={styles.image}
         source={require("../assets/getStartedImage.png")}
       />
-      <BasicButton title="Get Started" onPress={buttonClicked} />
+      <View style={styles.buttonContainer}>
+        <BasicButton title="Get Started" onPress={buttonClicked} />
+      </View>
       <View style={styles.privacyPolicyContainer}>
         <Text style={styles.altText}>
           By tapping next you are agreeing to plantID{"\n"}
@@ -40,21 +42,30 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "flex-start",
-    paddingLeft: 24,
-    paddingRight: 24,
     width: "100%",
     height: "100%",
+    overflow: "hidden",
   },
   image: {
     alignSelf: "center",
+    width: "100%",
+    marginTop: 24,
+    objectFit: "fill",
   },
   title: {
     fontSize: 28,
+    marginTop: 12,
+    marginHorizontal: 24,
+    fontFamily: "Rubik-Regular",
   },
   boldText: {
-    fontWeight: "bold",
+    fontWeight: "800",
   },
-  secondaryText: { fontSize: 16 },
+  secondaryText: {
+    fontSize: 16,
+    marginHorizontal: 24,
+    color: "rgba(19, 35, 27, 0.7)",
+  },
   altText: {
     textAlign: "center",
     fontSize: 11,
@@ -63,11 +74,17 @@ const styles = StyleSheet.create({
   privacyPolicyContainer: {
     alignSelf: "center",
     width: "100%",
-    marginTop: 20,
+    marginTop: "3%",
   },
   underlineText: {
     textDecorationLine: "underline",
   },
+  buttonContainer: {
+    alignSelf: "center",
+    paddingHorizontal: 24,
+    width: "100%",
+    marginTop: -44,
+  },
 });
 
-export default gettingStartedPage;
+export default GettingStartedPage;

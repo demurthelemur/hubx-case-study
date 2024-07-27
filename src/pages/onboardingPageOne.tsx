@@ -34,20 +34,19 @@ const OnboardingPageOne: React.FC<Props> = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: "center",
+    display: "flex",
     alignItems: "center",
   },
-  title: { width: 315, height: 66, marginTop: 59 },
+  title: { width: 315, height: 66, marginTop: 49, marginBottom: 12 },
   image: { height: 630 },
   buttonContainer: {
     position: "absolute",
-    top: "80%", // Adjust as needed
+    top: "85%",
     alignItems: "center",
-    width: "100%",
+    width: "85%",
     zIndex: 2,
   },
-  indicatorContainer: { marginTop: 15 },
+  indicatorContainer: { marginTop: 10 },
 });
 
 export default OnboardingPageOne;

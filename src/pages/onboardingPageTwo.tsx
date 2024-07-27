@@ -22,6 +22,7 @@ const OnboardingPageTwo: React.FC<Props> = ({ navigation }) => {
       <Image
         source={require("../assets/onboarding2Background.png")}
         style={styles.background}
+        blurRadius={25}
       />
       <Image
         source={require("../assets/onboarding2.png")}
@@ -45,37 +46,37 @@ const OnboardingPageTwo: React.FC<Props> = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
+    display: "flex",
     alignItems: "center",
   },
   title: { width: 277, height: 49, marginTop: 59, marginBottom: 70 },
-  image: { height: 540, width: 261, marginBottom: 50 },
+  image: { height: 524, width: 242, marginBottom: "30%", objectFit: "fill" },
   buttonContainer: {
     position: "absolute",
     top: "85%", // Adjust as needed
     alignItems: "center",
-    width: "100%",
+    width: "85%",
     zIndex: 2,
   },
   pageContainer: { marginTop: 15 },
   gradient: {
     zIndex: 1,
     position: "absolute",
-    top: 520,
-    left: 60,
-    right: 0,
-    bottom: 0,
-    width: 261,
+    top: "55%",
+    alignSelf: "center",
+    width: "85%",
     height: 540,
   },
   background: {
     position: "absolute",
+    top: "25%",
     height: 411,
     width: 420,
+    transform: [{ rotate: "73.6deg" }],
   },
   artwork: {
     position: "absolute",
-    top: 140,
+    top: "14%",
   },
 });
 

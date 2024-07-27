@@ -65,7 +65,7 @@ const PaywallPage: React.FC<PaywallPageProps> = ({ navigation }) => {
         style={styles.background}
       >
         <View style={styles.closeButtonContainer}>
-          <CloseButton onPress={() => console.log("Close button clicked")} />
+          <CloseButton onPress={buttonClicked} />
         </View>
         <View style={styles.container}>
           <Text style={styles.title}>
