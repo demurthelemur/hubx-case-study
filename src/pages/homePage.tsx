@@ -8,6 +8,7 @@ import { fetchCategory } from "../app/categories";
 import { useDispatch, useSelector } from "react-redux";
 import QuestionComponent from "../components/questionComponent";
 import CategoryCard from "../components/categoryCard";
+import BottomNavBar from "../components/bottomNavBar";
 
 const Homepage: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -64,6 +65,7 @@ const Homepage: React.FC = () => {
             />
           </View>
         </ScrollView>
+        <BottomNavBar />
       </View>
     );
   } else {
