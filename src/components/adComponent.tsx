@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#4A3828",
     padding: 10,
     borderRadius: 10,
-    margin: 10,
+    margin: 24,
   },
   iconContainer: {
     position: "relative",
