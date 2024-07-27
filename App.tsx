@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, SafeAreaView, Image } from "react-native";
 import { Provider } from "react-redux";
@@ -13,6 +14,8 @@ import PaywallPage from "./src/pages/paywallPage";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Homepage from "./src/pages/homePage";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { getData } from "./src/api/localStorage";
 
 const Stack = createNativeStackNavigator();
 
@@ -23,18 +26,27 @@ export default function App() {
     "Rubik-Light": require("./src/assets/fonts/Rubik-Light.ttf"),
   });
 
-  if (!fontsLoaded) {
+  const [onboardingDone, setOnboardingDone] = useState(null);
+
+  useEffect(() => {
+    async function fetchOnboardingStatus() {
+      const status = await getData("onboardingDone");
+      console.log(status);
+      setOnboardingDone(status);
+    }
+    fetchOnboardingStatus();
+  }, []);
+
+  if (!fontsLoaded || onboardingDone === null) {
     return <AppLoading />;
   }
-
-  let onobardingDone = true;
 
   return (
     <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator
           screenOptions={{ headerShown: false }}
-          initialRouteName={onobardingDone ? "Homepage" : "GettingStartedPage"}
+          initialRouteName={onboardingDone ? "Homepage" : "GettingStartedPage"}
         >
           <Stack.Screen
             name="GettingStartedPage"

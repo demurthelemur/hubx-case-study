@@ -11,6 +11,7 @@ import FeatureCard from "../components/featureCard";
 import SelectableButton from "../components/selectableButton";
 import BasicButton from "../components/basicButton";
 import CloseButton from "../components/closeButton";
+import { storeData } from "../api/localStorage";
 
 interface PaywallPageProps {
   navigation: any;
@@ -42,8 +43,8 @@ const features: Feature[] = [
 
 const PaywallPage: React.FC<PaywallPageProps> = ({ navigation }) => {
   function buttonClicked(): void {
-    navigation.navigate("OnboardingPageOne");
-    console.log("Button clicked");
+    storeData("onboardingDone", "true");
+    navigation.navigate("Homepage");
   }
   const [monthlySelected, setmonthlySelected] = React.useState(true);
   const [yearlySelected, setYearlySelected] = React.useState(false);
@@ -153,24 +154,20 @@ const styles = StyleSheet.create({
   flatListContainer: {
     height: 140,
   },
-  buttonContainer: {
-    flex: 1,
-    alignSelf: "center",
-    marginTop: 10,
-  },
+  buttonContainer: {},
   selectableButtonContainer: {
-    marginBottom: 15,
+    marginBottom: 12,
   },
   undertext: {
-    paddingTop: 7,
+    paddingTop: 4,
     fontSize: 9,
     color: "rgba(255, 255, 255, 0.52)",
     textAlign: "center",
     fontWeight: "300",
   },
   sublinks: {
-    paddingTop: 7,
-    fontSize: 11,
+    paddingTop: 4,
+    fontSize: 10,
     color: "rgba(255, 255, 255, 0.52)",
     textAlign: "center",
     letterSpacing: 1,
