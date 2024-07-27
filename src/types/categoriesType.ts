@@ -5,7 +5,7 @@ interface Image {
   caption: string | null;
   width: number;
   height: number;
-  formats: any | null; // Adjust this type if you have a specific format for 'formats'
+  formats: string | null;
   hash: string;
   ext: string;
   mime: string;
@@ -13,12 +13,12 @@ interface Image {
   url: string;
   previewUrl: string | null;
   provider: string;
-  provider_metadata: any | null; // Adjust this type if you have a specific format for 'provider_metadata'
+  provider_metadata: string | null;
   createdAt: string;
   updatedAt: string;
 }
 
-export default interface Category {
+export interface Category {
   id: number;
   name: string;
   createdAt: string;
@@ -27,4 +27,18 @@ export default interface Category {
   title: string;
   rank: number;
   image: Image;
+}
+
+interface Meta {
+  pagination: {
+    page: number;
+    pageSize: number;
+    pageCount: number;
+    total: number;
+  };
+}
+
+export interface CategoryData {
+  data: Category[];
+  meta: Meta;
 }
