@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import PremiumBanner from "../components/adComponent";
 import HeaderComponent from "../components/headerComponent";
 import { useAppDispatch, useAppSelector, RootState } from "../app/store";
 import { fetchQuestion } from "../app/questions";
 import { fetchCategory } from "../app/categories";
 import { useDispatch, useSelector } from "react-redux";
+import QuestionComponent from "../components/questionComponent";
 
 const Homepage: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -33,7 +34,7 @@ const Homepage: React.FC = () => {
       <View>
         <HeaderComponent />
         <PremiumBanner />
-        <Text>{categories[0].name}</Text>
+        <QuestionComponent />
       </View>
     );
   } else {
@@ -41,4 +42,5 @@ const Homepage: React.FC = () => {
   }
 };
 
+const styles = StyleSheet.create({});
 export default Homepage;
