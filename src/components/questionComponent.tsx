@@ -10,15 +10,10 @@ interface Props {
 const QuestionComponent: React.FC<Props> = ({ text, image }) => {
   return (
     <View style={styles.container}>
-      <ImageBackground
-        source={require("../assets/testBackground.png")}
-        style={styles.background}
-      >
+      <ImageBackground source={{ uri: image }} style={styles.background}>
         <View style={styles.textContainer}>
           <BlurView tint="dark" intensity={90} style={styles.blurContainer}>
-            <Text style={styles.text}>
-              How to identify plants easily with PlantApp?
-            </Text>
+            <Text style={styles.text}>{text}</Text>
           </BlurView>
         </View>
       </ImageBackground>
@@ -33,6 +28,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     backgroundColor: "lightgrey",
     overflow: "hidden",
+    marginRight: 10,
   },
   background: {
     width: "100%",
