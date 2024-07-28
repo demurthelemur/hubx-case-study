@@ -34,11 +34,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     height: 60,
     backgroundColor: "#fff",
-    elevation: 10, // For Android shadow
-    shadowColor: "#000", // For iOS shadow
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
   },
   navItem: {
     alignItems: "center",

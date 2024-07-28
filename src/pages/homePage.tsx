@@ -76,9 +76,9 @@ const Homepage: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  scrollViewContent: {
-    paddingBottom: 16,
+    backgroundColor: "#fff",
+    height: "100%",
+    paddingBottom: 34,
   },
   subTitle: {
     fontSize: 15,

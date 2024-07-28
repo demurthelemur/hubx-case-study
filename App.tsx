@@ -3,8 +3,7 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, SafeAreaView, Image } from "react-native";
 import { Provider } from "react-redux";
 import { store } from "./src/app/store";
-import OnboardingPageOne from "./src/pages/onboardingPageOne";
-import OnboardingPageTwo from "./src/pages/onboardingPageTwo";
+import OnboardingPages from "./src/pages/OnboardingPages";
 import GettingStartedPage from "./src/pages/getStartedPage";
 import { useFonts } from "expo-font";
 import SelectableButton from "./src/components/selectableButton";
@@ -41,29 +40,33 @@ export default function App() {
     return <AppLoading />;
   }
 
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: "#fff",
+    },
+  });
+
   return (
-    <Provider store={store}>
-      <NavigationContainer>
-        <Stack.Navigator
-          screenOptions={{ headerShown: false }}
-          initialRouteName={onboardingDone ? "Homepage" : "GettingStartedPage"}
-        >
-          <Stack.Screen
-            name="GettingStartedPage"
-            component={GettingStartedPage}
-          />
-          <Stack.Screen
-            name="OnboardingPageOne"
-            component={OnboardingPageOne}
-          />
-          <Stack.Screen
-            name="OnboardingPageTwo"
-            component={OnboardingPageTwo}
-          />
-          <Stack.Screen name="PaywallPage" component={PaywallPage} />
-          <Stack.Screen name="Homepage" component={Homepage} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </Provider>
+    <View style={styles.container}>
+      <Provider store={store}>
+        <NavigationContainer>
+          <Stack.Navigator
+            screenOptions={{ headerShown: false }}
+            initialRouteName={
+              onboardingDone ? "GettingStartedPage" : "GettingStartedPage"
+            }
+          >
+            <Stack.Screen
+              name="GettingStartedPage"
+              component={GettingStartedPage}
+            />
+            <Stack.Screen name="OnboardingPages" component={OnboardingPages} />
+            <Stack.Screen name="PaywallPage" component={PaywallPage} />
+            <Stack.Screen name="Homepage" component={Homepage} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </Provider>
+    </View>
   );
 }

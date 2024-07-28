@@ -8,7 +8,7 @@ interface Props {
 
 const GettingStartedPage: React.FC<Props> = ({ navigation }) => {
   function buttonClicked() {
-    navigation.navigate("OnboardingPageOne");
+    navigation.navigate("OnboardingPages");
   }
 
   return (
@@ -45,6 +45,9 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     overflow: "hidden",
+    backgroundColor: "#fff",
+    paddingTop: 47,
+    paddingBottom: 34,
   },
   image: {
     alignSelf: "center",
