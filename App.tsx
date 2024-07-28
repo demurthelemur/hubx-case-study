@@ -6,9 +6,7 @@ import { store } from "./src/app/store";
 import OnboardingPages from "./src/pages/OnboardingPages";
 import GettingStartedPage from "./src/pages/getStartedPage";
 import { useFonts } from "expo-font";
-import SelectableButton from "./src/components/selectableButton";
-import FeatureCard from "./src/components/featureCard";
-import AppLoading from "expo-app-loading";
+import * as SplashScreen from "expo-splash-screen";
 import PaywallPage from "./src/pages/paywallPage";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -28,16 +26,24 @@ export default function App() {
   const [onboardingDone, setOnboardingDone] = useState(null);
 
   useEffect(() => {
-    async function fetchOnboardingStatus() {
-      const status = await getData("onboardingDone");
-      console.log(status);
-      setOnboardingDone(status);
+    async function prepare() {
+      try {
+        await SplashScreen.preventAutoHideAsync();
+        const status = await getData("onboardingDone");
+        console.log(status);
+        setOnboardingDone(status);
+      } catch (e) {
+        console.warn(e);
+      } finally {
+        await SplashScreen.hideAsync();
+      }
     }
-    fetchOnboardingStatus();
+
+    prepare();
   }, []);
 
   if (!fontsLoaded || onboardingDone === null) {
-    return <AppLoading />;
+    return null; // Render nothing while waiting for fonts and onboarding status
   }
 
   const styles = StyleSheet.create({
@@ -54,7 +60,7 @@ export default function App() {
           <Stack.Navigator
             screenOptions={{ headerShown: false }}
             initialRouteName={
-              onboardingDone ? "GettingStartedPage" : "GettingStartedPage"
+              onboardingDone ? "Homepage" : "GettingStartedPage"
             }
           >
             <Stack.Screen

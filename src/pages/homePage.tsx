@@ -1,5 +1,12 @@
 import React, { useEffect } from "react";
-import { View, Text, StyleSheet, FlatList, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  FlatList,
+  ScrollView,
+  LogBox,
+} from "react-native";
 import PremiumBanner from "../components/adComponent";
 import HeaderComponent from "../components/headerComponent";
 import { useAppDispatch, useAppSelector, RootState } from "../app/store";
@@ -12,6 +19,9 @@ import BottomNavBar from "../components/bottomNavBar";
 
 const Homepage: React.FC = () => {
   const dispatch = useAppDispatch();
+  useEffect(() => {
+    LogBox.ignoreLogs(["VirtualizedLists should never be nested"]);
+  }, []);
 
   useEffect(() => {
     dispatch(fetchQuestion());
@@ -76,9 +86,9 @@ const Homepage: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    height: "100%",
-    paddingBottom: 34,
+  },
+  scrollViewContent: {
+    paddingBottom: 16,
   },
   subTitle: {
     fontSize: 15,
